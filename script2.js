@@ -27,7 +27,7 @@ function mostrarStorage (){
     );
 }
 
-mostrarStorage();
+//mostrarStorage();
 
 function guardar() { 
   const nombre=document.querySelector('#nombre').value;
@@ -49,6 +49,21 @@ function guardar() {
 function ingreso() {
   const emaila=document.querySelector('#emaila').value;
   const passworda=document.querySelector('#passworda').value;
-  console.log(passworda);
+  let usuarioavalidar = usuarios.findIndex(usuario =>usuario.email==emaila && usuario.password1==passworda);  
+  let superusuario="admin";
+  console.log(usuarioavalidar);
   
-}
+  if(superusuario==emaila)
+  {
+    //validacion de adminsitrador
+    window.location="admin.html";
+  }else if(usuarioavalidar !="-1")
+    {
+          //window.location="index.html";
+          //alert("Redireccionado");
+          mostrarStorage();
+          
+    } else{alert("Primero debes validar tu email")
+        
+  } 
+  }
